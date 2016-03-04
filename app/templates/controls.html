@@ -1,0 +1,70 @@
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container text-center" style="font-size: 1.5em">
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="glyphicon glyphicon-fast-backward navbar-text" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-play navbar-text" aria-hidden="true" ng-show="!activeSong || paused" ng-click="play()"></span>
+        <span class="glyphicon glyphicon-pause navbar-text" aria-hidden="true" ng-show="activeSong && !paused" ng-click="pause()"></span>
+        <span class="glyphicon glyphicon-fast-forward navbar-text" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <span class="navbar-text" style="line-height:1em">{{activeSong.audio.currentTime | secondsToTime | date:'HH:mm:ss'}}</span>
+      </div>
+      <div class="col-sm-8">
+        <form class="navbar-form navbar-left" role="search" style="width:100%;">
+          <div class="form-group" style="width:100%;">
+            <input type="range" class="zubry-range" ng-model="activeSong.audio.currentTime" max="{{activeSong.audio.duration}}">
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-2">
+        <span class="navbar-text" style="line-height:1em">{{activeSong.audio.duration | secondsToTime | date:'HH:mm:ss'}}</span>
+      </div>
+    </div>
+  </div>
+</nav>
+<style>
+.navbar {
+  float: none;
+  text-align: center;
+}
+
+.navbar span {
+  float: none;
+  display: inline-block;
+}
+
+.zubry-range {
+  width: 100%;
+}
+
+.zubry-range{
+    -webkit-appearance: none;
+}
+
+.zubry-range::-webkit-slider-runnable-track {
+    height: 3px;
+    background: #eee;
+    border: none;
+}
+
+.zubry-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 4px;
+    background: #008cba;
+    margin-top: -6px;
+}
+
+.zubry-range:focus {
+    outline: none;
+}
+
+.zubry-range:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+</style>

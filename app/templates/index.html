@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainController">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+
+  <title>{{pageTitle()}}</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="playlist in playlists">
+        <playlist></playlist>
+      </div>
+    </div>
+  </div>
+  <div style="height:90px;"></div>
+  <controls></controls>
+  <script type="text/javascript">
+    'use strict';
+    require('./../app.js');
+  </script>
+</body>
+</html>
